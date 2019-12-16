@@ -101,7 +101,7 @@ do{
 
         //creation of $data_bw
         $data_bw=Array();
-        $res=sql_query("SELECT os,bw,SUM(hits) AS sumhits,SUM(visits) AS sumvisits FROM $option[prefix]_systems $clause $filter_agents GROUP BY bw ORDER BY 'sumhits' DESC");
+        $res=sql_query("SELECT os,bw,SUM(hits) AS sumhits,SUM(visits) AS sumvisits FROM $option[prefix]_systems $clause $filter_agents GROUP BY bw,os ORDER BY 'sumhits' DESC");
         if(mysql_num_rows($res)<1) break;
         while($row=mysql_fetch_row($res)){
                 list($systems_os,$systems_bw,$systems_sumhits,$systems_sumvisits)=$row;
@@ -132,7 +132,7 @@ if($dataFound){
                 unset($data_os);
 				usort($processed_os, '_osbw_sort_cmp');		/*** ORDINA IN BASE AL NUMERO DI VISITATORI ***/
         }
-        else{											/* Ordina raggruppando la prima parola del nome (ignorando quindi n° di versione) */
+        else{											/* Ordina raggruppando la prima parola del nome (ignorando quindi nÂ° di versione) */
                 $osnames=Array();
                 $count=0;
                 for($i=0,$tot=count($data_os);$i<$tot;++$i){
@@ -164,7 +164,7 @@ if($dataFound){
                 unset($data_bw);
 				usort($processed_bw, '_osbw_sort_cmp');		/*** ORDINA IN BASE AL NUMERO DI VISITATORI ***/
         }
-        else{											/*** Ordina raggruppando la prima parola del nome (ignorando quindi n° di versione) ***/
+        else{											/*** Ordina raggruppando la prima parola del nome (ignorando quindi nÂ° di versione) ***/
                 $bwnames=Array();
                 $count=0;
                 for($i=0,$tot=count($data_bw);$i<$tot;++$i){
