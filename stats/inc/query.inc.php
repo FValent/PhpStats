@@ -234,7 +234,7 @@ $query_data=utf8_decode($query_data);
                         while($row=mysql_fetch_row($result)) $query[$row[0]]=$row[1];
                 }
 
-                $result=sql_query("SELECT data,SUM(visits) AS dummy ,date FROM $option[prefix]_query $clause GROUP BY data ORDER BY $q_append2 LIMIT $start,$rec_pag");
+                $result=sql_query("SELECT data,SUM(visits) AS dummy ,date FROM $option[prefix]_query $clause GROUP BY data,date ORDER BY $q_append2 LIMIT $start,$rec_pag");
                 while($row=mysql_fetch_row($result)){
                         list($query_data,$query_sumvisits,$query_date)=$row;
 	$query_data=utf8_decode($query_data);
