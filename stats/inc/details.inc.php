@@ -68,7 +68,7 @@ function details()
         $data_details=Array();
 
         $visitors_id=Array();
-        $res=sql_query("SELECT visitor_id FROM $option[prefix]_details $filter_agents GROUP BY visitor_id ORDER BY date DESC LIMIT $start,$recordPerPage");
+        $res=sql_query("SELECT visitor_id FROM $option[prefix]_details $filter_agents GROUP BY visitor_id,date ORDER BY date DESC LIMIT $start,$recordPerPage");
         if(mysql_num_rows($res)<0) break;
         while($row=mysql_fetch_row($res)) $visitors_id[]=$row[0];
 
