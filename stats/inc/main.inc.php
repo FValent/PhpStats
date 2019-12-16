@@ -176,7 +176,7 @@ if(mysql_num_rows($result)>0)
 else $min_visits=$min_visits_data='-';
 
 // QUERY PIU' CERCATA
-$result=sql_query("SELECT data,SUM(visits) AS dummy FROM $option[prefix]_query GROUP BY data ORDER BY dummy DESC LIMIT 1");
+$result=sql_query("SELECT data,SUM(visits) AS dummy FROM $option[prefix]_query GROUP BY data,date ORDER BY dummy DESC LIMIT 1");
 if(mysql_num_rows($result)>0) list($most_query_word,$most_query_word_volte)=mysql_fetch_row($result);
 else $most_query_word=$most_query_word_volte='-';
 
